@@ -1,30 +1,30 @@
 models:
   - name: stg_jaffle_shop__customers
-    description: "This is a staging model for the customers table in the jaffle_shop database."
+  # Use the (new) properties of columns in staging.
+    description: one unique customer per row
     columns:
-      # Use the (new) properties of columns in staging.
       - name: customer_id
+        description: the primary key
         data_tests:
           - unique
           - not_null
 
-
   - name: stg_jaffle_shop__orders
-    description: "This is a staging model for the orders table in the jaffle_shop database."
     columns:
-      # Use the (new) properties of columns in staging.
+    # Use the (new) properties of columns in staging.
       - name: order_id
         data_tests:
           - unique
           - not_null
       - name: status
+        description: "{{ doc('order_status') }}"
         data_tests:
           - accepted_values:
               arguments:
                 values: ['placed', 'shipped', 'completed', 'returned', 'return_pending']
       - name: customer_id
         data_tests:
-          # Every customer_id in orders should exist in the customers table. This is a foreign key relationship.
+        # Every customer_id in orders should exist in the customers table. This is a foreign key relationship.
           - relationships:
               arguments:
                 to: ref('stg_jaffle_shop__customers')

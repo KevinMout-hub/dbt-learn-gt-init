@@ -45,3 +45,11 @@ For staging model:
     - `dbt test` validates your data for quality issues
     - `dbt seed` load CSV data into your warehouse tools
     - `dbt snapshot` tracks slowly changing dimensions in your data
+
+# Documentation
+
+- Model level.
+- Table level.
+- Column level.
+
+- Markdown seperate file.
