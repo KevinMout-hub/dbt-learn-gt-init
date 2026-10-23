@@ -23,3 +23,25 @@ For staging model:
 
 # Tests
 - `dbtf test`
+
+- Singular tests
+    - for a specific model, these are not yaml files like generic tests. You utilize tests folder.
+    - `dbtf test --select stg_stripe__payments` for a specific model
+
+- Source testing
+- `dbtf test -s source:jaffle_shop`
+
+- *IMPORTANT: freshness feels like a test, but it isn't*
+
+- *RULE OF THUMB* -->
+    - Test sources for data integrity.
+    - Test models for data transformations.
+
+# Build
+
+- dbt build is to run and test your dbt in a smart, integrated way.
+    - runnning stage by stage.
+    - `dbt run` transforms and builds models in your warehouse
+    - `dbt test` validates your data for quality issues
+    - `dbt seed` load CSV data into your warehouse tools
+    - `dbt snapshot` tracks slowly changing dimensions in your data

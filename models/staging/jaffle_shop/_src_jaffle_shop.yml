@@ -1,19 +1,25 @@
 sources: 
- - name: jaffle_shop
-   database: raw
-   schema: jaffle_shop
-   tables:
-     - name: customers
-     - name: orders
-       config:
-        freshness:
-          # If the source is older than 24 hours, dbt will warn
-          warn_after: 
-            count: 24
-            period: hour
-          # If the source is older than 48 hours, dbt will error
-          error_after: 
-            count: 48
-            period: hour
+  - name: jaffle_shop
+    database: raw
+    schema: jaffle_shop
+    tables:
+      - name: customers
+        columns:
+          # We are testing the source so the column name should be 'id'
+          - name: id
+            data_tests: 
+              - unique
+              - not_null
+      - name: orders
+        config:
+          freshness:
+            # If the source is older than 24 hours, dbt will warn
+            warn_after: 
+              count: 24
+              period: hour
+            # If the source is older than 48 hours, dbt will error
+            error_after: 
+              count: 48
+              period: hour
 
-        loaded_at_field: _etl_loaded_at
+          loaded_at_field: _etl_loaded_at
