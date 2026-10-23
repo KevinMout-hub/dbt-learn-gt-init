@@ -1,0 +1,14 @@
+version: "1"
+context:
+  active-host: "rh357.us1.dbt.com"
+  active-project: "70506183175195"
+projects:
+  - project-name: "Untitled Project"
+    project-id: "70506183175195"
+    account-name: "Kevin's dbt Cloud Account"
+    account-id: "70506183171540"
+    account-host: "rh357.us1.dbt.com"
+    token-name: "cloud-cli-3404"
+    token-value: "dbtu_1GviZqoAmBaJ6ZK6lgNbhDkdVvHv1OJMbWgZQH0xM6rHQ5yhi4"
+
+
