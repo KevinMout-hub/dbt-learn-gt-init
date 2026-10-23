@@ -7,6 +7,7 @@ sources:
      - name: orders
        config:
         freshness:
+          # If the source is older than 24 hours, dbt will warn
           warn_after: 
             count: 24
             period: hour
