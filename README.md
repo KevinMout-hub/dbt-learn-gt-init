@@ -21,3 +21,5 @@ For staging model:
 `dbtf deps`
 - This downloads the packages in packages.yml
 
+# Tests
+- `dbtf test`
